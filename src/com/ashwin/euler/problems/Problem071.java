@@ -23,30 +23,4 @@ public class Problem071 {
 		
 		System.out.println(maxNumerator);
 	}
-	
-	public static long getTotient(long number) {
-		Set<Long> primes = getPrimeFactors(number);
-		double multiples = number;
-		for(Long prime : primes)
-			multiples *= (double) (prime - 1) / prime;
-		return (long) multiples;
-	}
-	
-	public static Set<Long> getPrimeFactors(long number) {
-		Set<Long> primes = new HashSet<Long>();
-		for(long i = 2; i <= number; i++) {
-			if(number % i == 0L && isPrime(i)) {
-				primes.add(i);
-				number /= i;
-			}
-		}
-		return primes;
-	}
-	
-	public static boolean isPrime(long number) {
-		for(long i = 2; i <= Math.sqrt(number); i++)
-			if(number % i == 0L)
-				return false;
-		return true;
-	}
 }
